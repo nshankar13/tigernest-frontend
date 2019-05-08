@@ -58,13 +58,13 @@ const Home = () => (
           <a className="card">
             <h3 style={divStyle3}> Event Organizer</h3>
             <p style={divStyle3}> Register events that hosts and visitors sign up for!</p>
-            <Button style={{marginTop: '29px'}} color="secondary" onClick={() => Router.push("https://tiger-nest2.herokuapp.com/myEvents")}>Login with CAS</Button>
+            <Button style={{marginTop: '29px'}} color="secondary" onClick={() => Router.push("http://ec2-18-224-19-243.us-east-2.compute.amazonaws.com/myEvents")}>Login with CAS</Button>
 
           </a>
           <a className="card">
             <h3 style={divStyle3}>Host 🛏️</h3>
             <p style={divStyle3}>Host a visiting student!</p>
-            <Button style={{marginTop: '48px'}} color="secondary" onClick={() => Router.push("https://tiger-nest2.herokuapp.com/hostAllEvents")}>Login with CAS</Button>
+            <Button style={{marginTop: '48px'}} color="secondary" onClick={() => Router.push("http://ec2-18-224-19-243.us-east-2.compute.amazonaws.com/hostAllEvents")}>Login with CAS</Button>
           </a>
           <a className="card">
             <h3 style={divStyle3}>Visitor 💼</h3>
