@@ -1,9 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from '../components/head';
-import { Button } from 'reactstrap';
 import Router from 'next/router';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import HomeNav from '../components/homeNav'
+import Container from '@material-ui/core/Container';
+
+
+const useStyles = makeStyles({
+  card: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
 
 var divStyle = {
@@ -20,116 +47,51 @@ var divStyle3 = {
   color: 'black'
 }
 
+/*const theme = createMuiTheme({
+  typography: Typography(createPalette(), {
+    fontFamily: '"Comic Sans"',
+  })
+});*/
+/*<Card style={{position: 'absolute', display: 'inline-block', top: 200, left: '5%', maxWidth: 300, align: "center"}}>
+      <CardContent>
+        <Typography variant="body1" component="p">
+        Matching Princeton students with overnight visitors.
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
 
+        <Typography component="div" style={{backgroundColor: '#424242', height: 50, width: 900, opacity: 0.8 }} />
 
+     */
+class Home extends React.Component{ 
 
-const Home = () => (
-  <div>
+  render(props) {
 
-    <Head title="Home" />
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" />
- 
- 
-    <div className="hero">
-      <h1 className="title" style={divStyle}>WELCOME TO <br /> TIGERNEST!</h1>
-      <p className="description" style={divStyle}>
-      <br />
-        Matching Princeton students with visiting guests
-      </p>
-      <br />
-      <center style={divStyle}> I am a.... </center>
-      <div className="row">
+  return (<div> 
 
-      {/* <Card className="text-white" color="dark">
-        <h5> Event Organizer </h5>
-        <p> Register events that <br /> and visitors sign up for!</p>
-          <center> <Link href="/myEvents">
-            <a className="button">
-              Login
-            </a>
-          </Link> </center>
-          <center> <Link href="/eventOrganizerRegister">
-            <a className="button">
-              Sign up
-            </a>
-          </Link> </center>
-      </Card> */}
-
-          <a className="card">
-            <h3 style={divStyle3}> Event Organizer</h3>
-            <p style={divStyle3}> Register events that hosts and visitors sign up for!</p>
-            <Button style={{marginTop: '29px'}} color="secondary" onClick={() => Router.push("http://ec2-18-224-19-243.us-east-2.compute.amazonaws.com/myEvents")}>Login with CAS</Button>
-
-          </a>
-          <a className="card">
-            <h3 style={divStyle3}>Host 🛏️</h3>
-            <p style={divStyle3}>Host a visiting student!</p>
-            <Button style={{marginTop: '48px'}} color="secondary" onClick={() => Router.push("http://ec2-18-224-19-243.us-east-2.compute.amazonaws.com/hostAllEvents")}>Login with CAS</Button>
-          </a>
-          <a className="card">
-            <h3 style={divStyle3}>Visitor 💼</h3>
-            <p style={divStyle3}>
-              Find a place to stay!
-              </p>
-              <Button color="secondary" onClick={() => Router.push("/visitor/login")}>Login</Button>
-              <Button style={{marginTop: '10px'}} color="secondary" onClick={() => Router.push("/visitor/register")}>Register</Button>
-          </a>
-    </div>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Baumans|Jaldi|Marvel|Viga&display=swap" rel="stylesheet"/>
+     <HomeNav />
+      
+    <div className="strokeme" style={{position: 'absolute', top: '50%', left: '20%', color: 'white'}}> 
+     <h1 style ={{textShadow: 20, fontFamily: "Jaldi"}}> Pairing Princeton students with overnight visitors  </h1>
     </div>
 
     <style jsx>{`
       :global(body) {
         margin: 0;
-        background: url("/static/background.jpg");
+        background: url("/static/princeton-dorm.jpg");
         background-size: cover;
-        font-family: 'Maven Pro', sans-serif;
       }
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
+      .strokeme {
+        color: white;
+        text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
       }
     `}</style> 
   </div>
-)
 
+  )}
+}
 export default Home
